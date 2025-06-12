@@ -2,12 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('chat-form');
   const input = document.getElementById('user-input');
   const output = document.getElementById('chat-output');
+  const modelSelect = document.getElementById('model-select'); // Add this line
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const prompt = input.value.trim();
     if (!prompt) return;
+
+    const selectedModel = modelSelect.value; // Add this line
 
     // Show user prompt in chat
     output.innerHTML += `<div class="user-msg">🧠 You: ${prompt}</div>`;
@@ -16,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show loading message
     output.innerHTML += `
       <div class="bot-msg loading">
-        <img src="mascot.png" alt="RIOgpt Mascot" class="mascot-img" onerror="this.style.display='none'; this.nextElementSibling.innerHTML=' ' + this.nextElementSibling.innerHTML;">
+        <img src="mascot.png" alt="RIOgpt Mascot" class="mascot-img" onerror="this.style.display='none'; this.nextElementSibling.innerHTML='🤖 ' + this.nextElementSibling.innerHTML;">
         <div class="message-content">RIOgpt is thinking...</div>
       </div>`;
     output.scrollTop = output.scrollHeight;
@@ -27,7 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ prompt })
+        body: JSON.stringify({ 
+          prompt: prompt,
+          model: selectedModel  // Add this line
+        })
       });
 
       // Remove loading message

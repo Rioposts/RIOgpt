@@ -28,12 +28,53 @@ body {
 h1 {
   text-align: center;
   color: #333;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 2.5em;
   background: linear-gradient(135deg, #667eea, #764ba2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.model-selector {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.model-selector label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 16px;
+}
+
+#model-select {
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 15px;
+  font-size: 15px;
+  background: white;
+  color: #333;
+  min-width: 300px;
+  outline: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#model-select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#model-select optgroup {
+  font-weight: bold;
+  color: #666;
+}
+
+#model-select option {
+  padding: 8px;
+  font-weight: normal;
 }
 
 .chat-box {
@@ -207,30 +248,4 @@ button:active {
     max-width: 90%;
     font-size: 15px;
   }
-}
-
-/* ...existing code... */
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.container {
-  flex: 1;
-}
-
-footer {
-  text-align: center;
-  margin-top: auto;
-  padding: 1em 0;
-  
-  width: 100%;
 }
